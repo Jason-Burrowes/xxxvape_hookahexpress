@@ -60,9 +60,10 @@ export class XxxvapeProductsComponent implements OnInit {
     }
   ];
 
-  constructor(private brandService: BrandService) { }
+  constructor(private brandService: BrandService) {
+    this.brandService.setSelectedBrand('xxxvape');
+  }
 
   ngOnInit(): void {
-    this.brandService.setSelectedBrand('xxxvape');
   }
 }

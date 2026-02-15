@@ -60,9 +60,10 @@ export class HookahexpressProductsComponent implements OnInit {
     }
   ];
 
-  constructor(private brandService: BrandService) { }
+  constructor(private brandService: BrandService) {
+    this.brandService.setSelectedBrand('hookahexpress');
+  }
 
   ngOnInit(): void {
-    this.brandService.setSelectedBrand('hookahexpress');
   }
 }
