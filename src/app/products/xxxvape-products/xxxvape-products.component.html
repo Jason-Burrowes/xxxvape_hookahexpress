@@ -1,0 +1,20 @@
+<div class="products-container">
+  <div class="products-header">
+    <h1>XXXVape Products</h1>
+    <p>Browse our premium selection of vaping products</p>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image">{{ product.image }}</div>
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="product-footer">
+          <span class="product-price">${{ product.price.toFixed(2) }}</span>
+          <button class="btn-add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

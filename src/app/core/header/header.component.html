@@ -1,0 +1,69 @@
+<header [class]="'header ' + (selectedBrand || 'default')">
+  <div class="header-container">
+    <div class="logo">
+      <a routerLink="/landing">
+        <span *ngIf="selectedBrand === 'xxxvape'" class="brand-name">XXXVape</span>
+        <span *ngIf="selectedBrand === 'hookahexpress'" class="brand-name">Hookah Express</span>
+        <span *ngIf="!selectedBrand" class="brand-name">XXXVape & Hookah Express</span>
+      </a>
+    </div>
+
+    <nav class="navigation">
+      <a routerLink="/landing" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      
+      <div class="dropdown" *ngIf="selectedBrand === 'xxxvape' || !selectedBrand">
+        <a class="dropbtn">XXXVape</a>
+        <div class="dropdown-content">
+          <a routerLink="/xxxvape/products">Products</a>
+        </div>
+      </div>
+
+      <div class="dropdown" *ngIf="selectedBrand === 'hookahexpress' || !selectedBrand">
+        <a class="dropbtn">Hookah Express</a>
+        <div class="dropdown-content">
+          <a routerLink="/hookahexpress/products">Products</a>
+          <a routerLink="/hookahexpress/services">Services</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="user-menu">
+      <div *ngIf="!isLoggedIn">
+        <button class="btn-login" (click)="openLoginModal()">Login</button>
+      </div>
+      <div *ngIf="isLoggedIn" class="user-info">
+        <span class="username">{{ currentUser }}</span>
+        <button class="btn-logout" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal" *ngIf="showLoginModal" (click)="closeLoginModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeLoginModal()">&times;</span>
+      <h2>Login</h2>
+      <form (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input 
+            type="text" 
+            id="username" 
+            [(ngModel)]="username" 
+            name="username" 
+            required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input 
+            type="password" 
+            id="password" 
+            [(ngModel)]="password" 
+            name="password" 
+            required>
+        </div>
+        <button type="submit" class="btn-submit">Login</button>
+      </form>
+    </div>
+  </div>
+</header>
