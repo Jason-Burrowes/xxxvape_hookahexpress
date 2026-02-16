@@ -11,6 +11,8 @@ import { LandingComponent } from './landing/landing.component';
 import { XxxvapeProductsComponent } from './products/xxxvape-products/xxxvape-products.component';
 import { HookahexpressProductsComponent } from './products/hookahexpress-products/hookahexpress-products.component';
 import { HookahexpressServicesComponent } from './services/hookahexpress-services/hookahexpress-services.component';
+import { BecomeRetailerComponent } from './retailer/become-retailer/become-retailer.component';
+import { RetailLocationsComponent } from './retailer/retail-locations/retail-locations.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,12 @@ import { HookahexpressServicesComponent } from './services/hookahexpress-service
     LandingComponent,
     XxxvapeProductsComponent,
     HookahexpressProductsComponent,
-    HookahexpressServicesComponent
+    HookahexpressServicesComponent,
+    BecomeRetailerComponent,
+    RetailLocationsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

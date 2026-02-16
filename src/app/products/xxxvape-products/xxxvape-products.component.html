@@ -1,12 +1,25 @@
 <div class="products-container">
   <div class="products-header">
-    <h1>XXXVape Products</h1>
+    <h1>XXX Vape Products</h1>
     <p>Browse our premium selection of vaping products</p>
   </div>
 
+  <div class="products-filter">
+    <button
+      class="filter-btn"
+      *ngFor="let option of filterOptions"
+      (click)="setFilter(option.value)"
+      [class.active]="selectedFilter === option.value"
+    >
+      {{ option.label }}
+    </button>
+  </div>
+
   <div class="products-grid">
-    <div class="product-card" *ngFor="let product of products">
-      <div class="product-image">{{ product.image }}</div>
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <div class="product-image">
+        <img [src]="product.image" [alt]="product.name" />
+      </div>
       <div class="product-info">
         <h3>{{ product.name }}</h3>
         <p class="product-description">{{ product.description }}</p>

@@ -2,23 +2,57 @@
   <div class="header-container">
     <div class="logo">
       <a routerLink="/landing">
-        <span *ngIf="selectedBrand === 'xxxvape'" class="brand-name">XXXVape</span>
-        <span *ngIf="selectedBrand === 'hookahexpress'" class="brand-name">Hookah Express</span>
-        <span *ngIf="!selectedBrand" class="brand-name">XXXVape & Hookah Express</span>
+        <img
+          *ngIf="selectedBrand === 'xxxvape'"
+          class="brand-logo"
+          src="assets/Logo/White-1-1.png"
+          alt="XXXVape Hookah Express Logo"
+        />
+        <span *ngIf="selectedBrand === 'xxxvape'" class="brand-name"
+          >XXX Vape</span
+        >
+        <span *ngIf="selectedBrand === 'hookahexpress'" class="brand-name"
+          >Hookah Express</span
+        >
+        <span *ngIf="!selectedBrand" class="brand-name"
+          >XXX Vape & Hookah Express</span
+        >
       </a>
     </div>
 
     <nav class="navigation">
-      <a routerLink="/landing" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      
-      <div class="dropdown" *ngIf="selectedBrand === 'xxxvape' || !selectedBrand">
-        <a class="dropbtn">XXXVape</a>
+      <a
+        routerLink="/landing"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+
+      <div
+        class="dropdown"
+        *ngIf="selectedBrand === 'xxxvape' || !selectedBrand"
+      >
+        <a class="dropbtn">XXX Vape</a>
         <div class="dropdown-content">
           <a routerLink="/xxxvape/products">Products</a>
         </div>
       </div>
 
-      <div class="dropdown" *ngIf="selectedBrand === 'hookahexpress' || !selectedBrand">
+      <div
+        class="dropdown"
+        *ngIf="selectedBrand === 'xxxvape' || !selectedBrand"
+      >
+        <a class="dropbtn">Retailer</a>
+        <div class="dropdown-content">
+          <a routerLink="/retailer/become">Become a Retailer</a>
+          <a routerLink="/retailer/locations">Find Retail Locations</a>
+        </div>
+      </div>
+
+      <div
+        class="dropdown"
+        *ngIf="selectedBrand === 'hookahexpress' || !selectedBrand"
+      >
         <a class="dropbtn">Hookah Express</a>
         <div class="dropdown-content">
           <a routerLink="/hookahexpress/products">Products</a>
@@ -46,21 +80,23 @@
       <form (ngSubmit)="login()">
         <div class="form-group">
           <label for="username">Username:</label>
-          <input 
-            type="text" 
-            id="username" 
-            [(ngModel)]="username" 
-            name="username" 
-            required>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="username"
+            name="username"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input 
-            type="password" 
-            id="password" 
-            [(ngModel)]="password" 
-            name="password" 
-            required>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
         </div>
         <button type="submit" class="btn-submit">Login</button>
       </form>

@@ -1,0 +1,124 @@
+.retailer-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.retailer-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.retailer-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.retailer-hero p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.retailer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.retailer-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.retailer-card h2 {
+  margin-top: 0;
+  color: #f5576c;
+}
+
+.retailer-card ul {
+  padding-left: 20px;
+  color: #444;
+}
+
+.retailer-card form {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.form-row label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-row input,
+.form-row select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+}
+
+.form-row.disabled {
+  opacity: 0.6;
+}
+
+.field-helper {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.field-error {
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
+.toggle-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toggle-btn {
+  border: 1px solid rgba(245, 87, 108, 0.4);
+  background: #fff;
+  color: #f5576c;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+.submit-message {
+  margin-top: 12px;
+  color: #555;
+}
+
+.retailer-button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.retailer-button:hover {
+  box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
+}
