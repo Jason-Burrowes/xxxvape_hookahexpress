@@ -5,7 +5,7 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'xxxvape-hookahexpress';
@@ -16,12 +16,17 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Check initial route
     this.showLayout = !this.router.url.includes('age-verification');
-    
+
     // Subscribe to route changes
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        this.showLayout = !event.url.includes('age-verification');
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd,
+        ),
+      )
+      .subscribe((event) => {
+        const url = event.urlAfterRedirects || event.url;
+        this.showLayout = !url.includes('age-verification');
       });
   }
 }
