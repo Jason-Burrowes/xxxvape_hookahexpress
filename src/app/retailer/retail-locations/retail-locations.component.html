@@ -1,24 +1,44 @@
 <div class="retailer-page">
   <div class="retailer-hero">
-    <h1>Find Retail Locations</h1>
-    <p>Locate an XXX Vape retailer near you.</p>
+    <h1>Get your xXx Vape from one of our amazing retailers!</h1>
   </div>
 
   <div class="locations-grid">
-    <div class="location-card">
-      <h3>Downtown Store</h3>
-      <p>123 Main Street, Suite 100</p>
-      <p>Mon–Sat: 10am–8pm</p>
-    </div>
-    <div class="location-card">
-      <h3>Westside Outlet</h3>
-      <p>456 Sunset Blvd</p>
-      <p>Mon–Sun: 11am–9pm</p>
-    </div>
-    <div class="location-card">
-      <h3>East Market</h3>
-      <p>789 Riverside Drive</p>
-      <p>Mon–Sat: 10am–7pm</p>
-    </div>
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=1hG22JLFdlrQf3aL5TyWEGbErPPxuw24&ehbc=2E312F"
+      width="1070"
+      height="480"
+    ></iframe>
+  </div>
+
+  <div class="retailer-filter">
+    <label for="parishFilter">Filter by parish</label>
+    <select id="parishFilter" name="parishFilter" [(ngModel)]="selectedParish">
+      <option *ngFor="let parish of parishes" [value]="parish">
+        {{ parish }}
+      </option>
+    </select>
+  </div>
+
+  <div class="retailer-table-wrapper">
+    <table class="retailer-table">
+      <thead>
+        <tr>
+          <th>Retailer Name</th>
+          <th>Address</th>
+          <th>Parish</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let location of filteredLocations">
+          <td>{{ location.name }}</td>
+          <td>{{ location.address }}</td>
+          <td>{{ location.parish }}</td>
+        </tr>
+        <tr *ngIf="filteredLocations.length === 0">
+          <td colspan="3">No retailers found for this parish.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -21,7 +21,7 @@ export class HookahexpressServicesComponent implements OnInit {
       id: 1,
       name: 'Hookah Setup Service',
       description: 'Professional hookah setup at your location',
-      price: 49.99,
+      price: 10000.0,
       image: 'assets/Images/xxx_vape_lineup_resized-2048x489.png',
       features: [
         'Complete hookah assembly',
@@ -33,8 +33,9 @@ export class HookahexpressServicesComponent implements OnInit {
     {
       id: 2,
       name: 'Deep Cleaning Service',
-      description: 'Thorough cleaning and maintenance of your hookah',
-      price: 39.99,
+      description:
+        'Thorough cleaning and maintenance of your hookah (per hookah)',
+      price: 3000.0,
       image: 'assets/Images/cool_mint_1600.jpg',
       features: [
         'Complete disassembly and cleaning',
@@ -47,7 +48,7 @@ export class HookahexpressServicesComponent implements OnInit {
       id: 3,
       name: 'Custom Flavor Mixing',
       description: 'Create your own unique flavor combination',
-      price: 29.99,
+      price: 5000.0,
       image: 'assets/Images/mixberry_ice_1600.jpg',
       features: [
         'Expert flavor consultation',
@@ -60,7 +61,7 @@ export class HookahexpressServicesComponent implements OnInit {
       id: 4,
       name: 'Event Catering',
       description: 'Hookah service for your special events',
-      price: 299.99,
+      price: 15000.0,
       image: 'assets/Images/ja-vibes-girl.png',
       features: [
         'Multiple hookah setups',
@@ -73,7 +74,7 @@ export class HookahexpressServicesComponent implements OnInit {
       id: 5,
       name: 'Maintenance Package',
       description: 'Monthly maintenance subscription',
-      price: 79.99,
+      price: 12000.0,
       image: 'assets/Images/peach_ice_1600.jpg',
       features: [
         'Monthly deep cleaning',
@@ -86,7 +87,7 @@ export class HookahexpressServicesComponent implements OnInit {
       id: 6,
       name: 'Consultation Service',
       description: 'Expert advice on hookah selection and usage',
-      price: 19.99,
+      price: 7000.0,
       image: 'assets/Images/blueberry_ice_1600.jpg',
       features: [
         'One-on-one consultation',
