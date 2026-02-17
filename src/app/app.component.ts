@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
+declare const gtag: (...args: any[]) => void;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -27,6 +29,11 @@ export class AppComponent implements OnInit {
       .subscribe((event) => {
         const url = event.urlAfterRedirects || event.url;
         this.showLayout = !url.includes('age-verification');
+        if (typeof gtag === 'function') {
+          gtag('config', 'G-XXXXXXXXXX', {
+            page_path: url,
+          });
+        }
       });
   }
 }
