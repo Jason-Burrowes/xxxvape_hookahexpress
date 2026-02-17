@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         const url = event.urlAfterRedirects || event.url;
         this.showLayout = !url.includes('age-verification');
         if (typeof gtag === 'function') {
-          gtag('config', 'G-XXXXXXXXXX', {
+          gtag('config', 'G-RFFK4FWKKY', {
             page_path: url,
           });
         }
