@@ -1,39 +1,54 @@
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-RFFK4FWKKY"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-RFFK4FWKKY");
+</script>
+
 <div class="age-verification-container">
   <div class="age-verification-content">
     <h1>Age Verification Required</h1>
     <div class="warning-icon">⚠️</div>
     <h2>You must be 18 years or older to enter this website</h2>
-    
+
     <div class="disclaimer">
       <h3>Disclaimer</h3>
       <p>
-        This website contains information about vaping and hookah products. 
-        By entering this website, you confirm that you are of legal age to purchase 
+        This website contains information about vaping and hookah products. By
+        entering this website, you confirm that you are of legal age to purchase
         tobacco products in your jurisdiction.
       </p>
       <p>
-        The products sold on this website are intended for adult use only. 
-        We do not sell to minors.
+        The products sold on this website are intended for adult use only. We do
+        not sell to minors.
       </p>
     </div>
 
     <div class="checkbox-container">
       <label>
-        <input type="checkbox" [(ngModel)]="disclaimerAccepted">
-        I confirm that I am 18 years or older and have read and accepted the disclaimer
+        <input type="checkbox" [(ngModel)]="disclaimerAccepted" />
+        I confirm that I am 18 years or older and have read and accepted the
+        disclaimer
       </label>
     </div>
 
     <div class="button-container">
-      <button 
-        class="btn btn-confirm" 
+      <button
+        class="btn btn-confirm"
         [disabled]="!disclaimerAccepted"
-        (click)="confirmAge()">
+        (click)="confirmAge()"
+      >
         I am 18 or Older - Enter
       </button>
-      <button 
-        class="btn btn-decline" 
-        (click)="decline()">
+      <button class="btn btn-decline" (click)="decline()">
         I am Under 18 - Exit
       </button>
     </div>
