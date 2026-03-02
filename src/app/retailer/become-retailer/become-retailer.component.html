@@ -1,0 +1,194 @@
+<div class="retailer-page">
+  <div class="retailer-hero">
+    <h1>Become a Retailer</h1>
+    <p>
+      Partner with XXX Vape to offer premium products in your store. At xXx
+      Vape, we’ve pioneered a vaping experience that’s unmatched in quality and
+      flavor. Whether you’re an established business or an ambitious individual,
+      there’s an exciting opportunity awaiting you with the xXx Vape family.
+    </p>
+  </div>
+
+  <div class="retailer-content">
+    <div class="retailer-card">
+      <h2>Why Partner With Us?</h2>
+      <hr />
+      <ul>
+        <br />
+        <li>
+          1. Exceptional Profit Margins: Secure an enticing profit with at least
+          a 45% margin on every sale.
+        </li>
+        <br />
+        <hr />
+        <br />
+        <li>
+          2. Swift & Reliable Delivery: We ensure timely deliveries, helping you
+          maintain consistent stock levels.
+        </li>
+        <br />
+        <hr />
+        <br />
+        <li>
+          3.Elegant Display Cases: Our sleek and secure display cases not only
+          enhance your store’s aesthetic but also assure product safety.
+        </li>
+        <br />
+        <hr />
+        <br />
+        <li>
+          4. Unparalleled Product Quality: With a return rate of less than 1%,
+          our vapes epitomize reliability. If ever there’s an issue, we’re
+          committed to making it right with hassle-free exchanges.
+        </li>
+      </ul>
+    </div>
+
+    <div class="retailer-card">
+      <h2>Get Started</h2>
+      <p>
+        Send us your business details and we will follow up within 24-48 hours.
+      </p>
+      <form #retailerForm="ngForm" (ngSubmit)="submitForm(retailerForm)">
+        <div class="form-row">
+          <label for="firstName">First Name</label>
+          <input
+            id="firstName"
+            name="firstName"
+            type="text"
+            [(ngModel)]="formData.firstName"
+            required
+          />
+          <span
+            class="field-error"
+            *ngIf="retailerForm.submitted && !formData.firstName"
+          >
+            First name is required.
+          </span>
+        </div>
+
+        <div class="form-row">
+          <label for="lastName">Last Name</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            [(ngModel)]="formData.lastName"
+            required
+          />
+          <span
+            class="field-error"
+            *ngIf="retailerForm.submitted && !formData.lastName"
+          >
+            Last name is required.
+          </span>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="formData.email"
+            required
+            email
+          />
+          <span
+            class="field-error"
+            *ngIf="
+              retailerForm.submitted &&
+              (!formData.email ||
+                retailerForm.controls['email']?.errors?.['email'])
+            "
+          >
+            Enter a valid email.
+          </span>
+        </div>
+
+        <div class="form-row">
+          <label for="address">Address</label>
+          <input
+            id="address"
+            name="address"
+            type="text"
+            [(ngModel)]="formData.address"
+            required
+          />
+          <span
+            class="field-error"
+            *ngIf="retailerForm.submitted && !formData.address"
+          >
+            Address is required.
+          </span>
+        </div>
+
+        <div class="form-row">
+          <label>Account Type</label>
+          <div class="toggle-group">
+            <button
+              type="button"
+              class="toggle-btn"
+              [class.active]="accountType === 'business'"
+              (click)="setAccountType('business')"
+            >
+              Business
+            </button>
+            <button
+              type="button"
+              class="toggle-btn"
+              [class.active]="accountType === 'individual'"
+              (click)="setAccountType('individual')"
+            >
+              Individual
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row" [class.disabled]="!isBusiness">
+          <label for="businessName">Business Name</label>
+          <input
+            id="businessName"
+            name="businessName"
+            type="text"
+            [(ngModel)]="formData.businessName"
+            [disabled]="!isBusiness"
+            [required]="isBusiness"
+          />
+          <span class="field-helper" *ngIf="!isBusiness">Individual</span>
+        </div>
+
+        <div class="form-row" [class.disabled]="!isBusiness">
+          <label for="businessType">Type of Business</label>
+          <select
+            id="businessType"
+            name="businessType"
+            [(ngModel)]="formData.businessType"
+            [disabled]="!isBusiness"
+            [required]="isBusiness"
+          >
+            <option value="" disabled>Select type</option>
+            <option *ngFor="let type of businessTypes" [value]="type">
+              {{ type }}
+            </option>
+            <option value="Individual" *ngIf="!isBusiness" selected>
+              Individual
+            </option>
+          </select>
+          <span class="field-helper" *ngIf="!isBusiness">Individual</span>
+        </div>
+
+        <button
+          class="retailer-button"
+          type="submit"
+          [disabled]="retailerForm.invalid || isSubmitting"
+        >
+          {{ isSubmitting ? "Submitting..." : "Submit & Email PDF" }}
+        </button>
+        <p class="submit-message" *ngIf="submitMessage">
+          {{ submitMessage }}
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
